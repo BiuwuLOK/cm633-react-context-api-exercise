@@ -29,7 +29,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="min-h-screen flex justify-center items-center bg-slate-200">
+      <div className="min-h-screen flex justify-center items-center bg-slate-200 px-4">
         <div className="flex max-w-3xl mx-auto w-full gap-x-8">
           <div className="w-1/2">
             <h2 className="text-2xl font-bold">Apple Products</h2>
