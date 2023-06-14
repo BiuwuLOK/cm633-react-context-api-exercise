@@ -1,10 +1,6 @@
 import React from "react";
 
 class ListItem extends React.Component {
-  state = {
-    active: false,
-  };
-
   toggleActive = () => {
     this.props.onSelect(this.props.title);
   };

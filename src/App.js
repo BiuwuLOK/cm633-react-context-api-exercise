@@ -11,7 +11,7 @@ class App extends React.Component {
 
   productSelectHandler = (product) => {
     // console.log(product);
-    const newProductSelected = [...this.state.productSelect];
+    let newProductSelected = [...this.state.productSelect];
 
     if (newProductSelected.includes(product)) {
       //
@@ -22,6 +22,9 @@ class App extends React.Component {
       //
       newProductSelected.push(product);
     }
+    this.setState({
+      productSelect: newProductSelected,
+    });
   };
 
   render() {
@@ -34,20 +37,25 @@ class App extends React.Component {
             <ul className="mt-4 flex flex-col gap-y-3">
               {this.state.products.map((product) => (
                 <ListItem
+                  key={product}
                   title={product}
-                  active={this.state.productSelect.includes}
+                  active={this.state.productSelect.includes(product)}
                   onSelect={this.productSelectHandler}
                 ></ListItem>
               ))}
             </ul>
 
-            <p className="mt-3 text-slate-400 text-sm">2 item(s) selected</p>
+            <p className="mt-3 text-slate-400 text-sm">
+              {this.state.productSelect.length} item(s) selected
+            </p>
           </div>
           <div className="w-1/2">
             <h2 className="text-2xl font-bold text-slate-400">
               Selected Products
             </h2>
-            <p className="mt-4 text-slate-800 text-lg">iPhone, Mac</p>
+            <p className="mt-4 text-slate-800 text-lg">
+              {this.state.productSelect.join(", ")}
+            </p>
           </div>
         </div>
       </div>
